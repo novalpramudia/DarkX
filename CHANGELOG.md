@@ -10,19 +10,12 @@ yang belum backward-compatible).
 ## [Unreleased]
 
 ### Added
-- `CONTRIBUTING.md` — panduan kontribusi lengkap
-- `CHANGELOG.md` — file ini
-- `.github/workflows/ci.yml` — GitHub Actions CI (test + validasi example
-  + validasi grammar JSON)
-- `LICENSE` — MIT License
-- Bagian **GitHub Linguist Status**, **License**, **Repository
-  Information**, **Contribution** di `README.md`
-- Metadata `repository`, `bugs`, `homepage`, `keywords`, `license` di
-  `editors/vscode-darkx/package.json`
-
-### Fixed
-- `editors/vscode-darkx/package.json`: menghapus referensi `icon.png`
-  yang tidak memiliki file fisik (menyebabkan `vsce package` gagal)
+- `.github/ISSUE_TEMPLATE/bug_report.md` — template laporan bug
+- `.github/ISSUE_TEMPLATE/feature_request.md` — template usulan fitur
+- `.github/ISSUE_TEMPLATE/config.yml` — konfigurasi issue template chooser
+- `.github/pull_request_template.md` — checklist PR (test, example,
+  README/grammar, CHANGELOG, konsistensi filosofi simbol ASCII)
+- `SECURITY.md` — kebijakan keamanan dan cara melaporkan kerentanan
 
 ## [0.1.0] - 2026-09-22
 
@@ -57,8 +50,21 @@ Rilis awal DarkX.
   `.dx` via TextMate grammar, auto-closing pairs untuk `{{ }}` dan
   `(( ))`, comment toggle `##`
 - `README.md` — grammar EBNF lengkap, tabel simbol, contoh program,
-  panduan testing dan pengembangan
+  panduan testing dan pengembangan, status project/version/license/
+  repository, status GitHub Linguist (jujur — belum resmi didukung)
 - `.gitignore` — Python + Node/VS Code extension
+- `LICENSE` — MIT License
+- `CONTRIBUTING.md` — panduan kontribusi lengkap
+- `CHANGELOG.md` — file ini
+- `.github/workflows/ci.yml` — GitHub Actions CI (matrix Python
+  3.9–3.12: test suite + validasi semua example + validasi grammar JSON)
+- Metadata `repository`, `bugs`, `homepage`, `keywords`, `license` di
+  `editors/vscode-darkx/package.json`
+- CI status badge di `README.md`
+
+### Fixed
+- `editors/vscode-darkx/package.json`: menghapus referensi `icon.png`
+  yang tidak memiliki file fisik (menyebabkan `vsce package` gagal)
 
 [Unreleased]: https://github.com/novalpramudia/DarkX/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/novalpramudia/DarkX/releases/tag/v0.1.0
