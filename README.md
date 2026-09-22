@@ -1,4 +1,7 @@
 # DarkX
+# DarkX
+
+[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-DarkX%20Support-blue?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=novalpramudia.darkx-lang)
 
 **Status:** Experimental / Pre-1.0 (active development)
 **Version:** `0.1.0`
