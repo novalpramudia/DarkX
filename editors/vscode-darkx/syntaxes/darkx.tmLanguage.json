@@ -1,0 +1,126 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "DarkX",
+  "scopeName": "source.darkx",
+  "fileTypes": ["dx"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#let-keyword" },
+    { "include": "#le-ge-operators" },
+    { "include": "#assign-operator" },
+    { "include": "#arithmetic-operators" },
+    { "include": "#print-input" },
+    { "include": "#func-return" },
+    { "include": "#if-keyword" },
+    { "include": "#else-keyword" },
+    { "include": "#while-keyword" },
+    { "include": "#mul-div-mod" },
+    { "include": "#comparison-operators" },
+    { "include": "#logical-operators" },
+    { "include": "#braces" },
+    { "include": "#parens" },
+    { "include": "#separators" },
+    { "include": "#function-call" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.darkx",
+          "match": "##.*$"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.darkx",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.darkx",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.darkx",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    "let-keyword": {
+      "comment": "':::' harus dicek sebelum '::' (if) supaya tidak tertukar",
+      "name": "storage.type.darkx",
+      "match": ":::"
+    },
+    "le-ge-operators": {
+      "comment": "'<=?' dan '>=?' harus dicek sebelum '<=' (return)",
+      "name": "keyword.operator.comparison.darkx",
+      "match": "(<=\\?|>=\\?)"
+    },
+    "assign-operator": {
+      "name": "keyword.operator.assignment.darkx",
+      "match": "==="
+    },
+    "arithmetic-operators": {
+      "name": "keyword.operator.arithmetic.darkx",
+      "match": "(\\+\\+\\+|---)"
+    },
+    "print-input": {
+      "name": "support.function.builtin.darkx",
+      "match": "(>>>|<<<)"
+    },
+    "func-return": {
+      "name": "keyword.control.darkx",
+      "match": "(=>|<=)"
+    },
+    "if-keyword": {
+      "comment": "dicek setelah ':::' supaya '::' di dalam ':::' tidak tertangkap duluan",
+      "name": "keyword.control.conditional.darkx",
+      "match": "::"
+    },
+    "else-keyword": {
+      "name": "keyword.control.conditional.darkx",
+      "match": "\\?\\?"
+    },
+    "while-keyword": {
+      "name": "keyword.control.loop.darkx",
+      "match": "~~"
+    },
+    "mul-div-mod": {
+      "name": "keyword.operator.arithmetic.darkx",
+      "match": "(\\*\\*|//|%%)"
+    },
+    "comparison-operators": {
+      "name": "keyword.operator.comparison.darkx",
+      "match": "(=\\?|!\\?|>\\?|<\\?)"
+    },
+    "logical-operators": {
+      "name": "keyword.operator.logical.darkx",
+      "match": "(&&|\\|\\||!!)"
+    },
+    "braces": {
+      "name": "punctuation.section.block.darkx",
+      "match": "(\\{\\{|\\}\\})"
+    },
+    "parens": {
+      "name": "punctuation.section.group.darkx",
+      "match": "(\\(\\(|\\)\\))"
+    },
+    "separators": {
+      "name": "punctuation.separator.darkx",
+      "match": "(,,|;;)"
+    },
+    "function-call": {
+      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\b(?=\\s*\\(\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.darkx" }
+      }
+    },
+    "identifiers": {
+      "name": "variable.other.darkx",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+    }
+  }
+}

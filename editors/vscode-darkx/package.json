@@ -1,0 +1,35 @@
+{
+  "name": "darkx-lang",
+  "displayName": "DarkX Language Support",
+  "description": "Syntax highlighting untuk bahasa pemrograman simbolik DarkX (.dx)",
+  "version": "0.1.0",
+  "publisher": "darkx-lang",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "darkx",
+        "aliases": [
+          "DarkX",
+          "darkx"
+        ],
+        "extensions": [
+          ".dx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "darkx",
+        "scopeName": "source.darkx",
+        "path": "./syntaxes/darkx.tmLanguage.json"
+      }
+    ]
+  }
+}
