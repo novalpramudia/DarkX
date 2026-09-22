@@ -1,8 +1,9 @@
 # DarkX
 
-> Status: DarkX is an executable language project with a GitHub Linguist
-> support proposal in preparation. It is not officially supported by GitHub
-> until a pull request is accepted and released by github-linguist/linguist.
+**Status:** Experimental / Pre-1.0 (active development)
+**Version:** `0.1.0`
+**License:** [MIT](LICENSE)
+**Repository:** [github.com/novalpramudia/DarkX](https://github.com/novalpramudia/DarkX)
 
 **DarkX** adalah bahasa pemrograman esoterik-simbolik: seluruh keyword
 (`let`, `if`, `else`, `while`, `function`, `return`, `print`, dst) diganti
@@ -11,13 +12,6 @@ grammar-nya — semuanya `>>>`, `<<<`, `:::`, `===`, `+++`, `::`, `??`, `~~`,
 `=>`, `<=`, dan sejenisnya.
 
 File DarkX berekstensi **`.dx`**.
-
-## Project Metadata
-
-- Current project version: `0.1.0`
-- Source repository URL: not published in this checkout yet
-- License: to be added before public release
-- GitHub Linguist status: proposal in preparation
 
 ```text
 >>> "Hello World" ;;
@@ -274,6 +268,44 @@ closure, input, dan error runtime).
   dan nomor baris yang jelas, ditangkap rapi oleh `src/main.py` dan
   ditampilkan ke stderr dengan exit code 1.
 
+## GitHub Linguist Status
+
+`.dx` **belum** merupakan bahasa yang dikenal secara resmi oleh GitHub
+Linguist (jadi GitHub.com belum otomatis menampilkan file `.dx` sebagai
+"DarkX" di language bar repo manapun).
+
+Yang **sudah** dilakukan/diverifikasi:
+- Konfigurasi bahasa (`languages.yml` entry, extension `.dx`, `tm_scope`)
+  sudah divalidasi berhasil di-parse oleh `github-linguist` versi lokal
+  hasil compile sendiri (`script/update-ids` + `bundle exec rake compile`
+  + `github-linguist <file>.dx` → melaporkan `language: DarkX`). Ini
+  membuktikan konfigurasi **valid secara teknis**.
+
+Yang **belum** dilakukan:
+- Pull request ke [`github-linguist/linguist`](https://github.com/github-linguist/linguist)
+  upstream belum diajukan, dan belum akan diajukan sampai syarat
+  pemakaian nyata di bawah ini realistis untuk dipenuhi.
+
+Kenapa belum diajukan: berdasarkan `CONTRIBUTING.md` resmi mereka,
+Linguist mensyaratkan bukti pemakaian nyata dalam skala besar sebelum
+menerima bahasa baru — minimal **≥ 2.000 file** dengan ekstensi terkait
+yang terindeks GitHub Search dalam setahun terakhir (di luar fork), dan
+tersebar di banyak repository berbeda (bukan didominasi satu repo/user).
+Mereka eksplisit menyatakan tidak menerima PR untuk *"very new or hobby
+languages"*. Contoh "Hello World"/tutorial juga tidak diterima sebagai
+sample resmi di `samples/` mereka.
+
+➡️ **Local override** (opsional, hanya berlaku untuk repo Anda sendiri,
+tidak mengubah apa pun secara global di GitHub) bisa ditambahkan lewat
+`.gitattributes` di root repo:
+
+```
+*.dx linguist-language=Python
+```
+
+Status ini akan diperbarui begitu DarkX punya adopsi nyata yang cukup
+untuk mengajukan PR resmi ke upstream Linguist.
+
 ## VS Code Extension
 
 Lihat `editors/vscode-darkx/` untuk extension syntax highlighting `.dx`.
@@ -288,6 +320,32 @@ code --install-extension darkx-lang-0.1.0.vsix
 
 Atau untuk development: buka folder `editors/vscode-darkx` di VS Code lalu
 tekan `F5` untuk membuka **Extension Development Host**.
+
+## Repository Information
+
+- **Repository:** [https://github.com/novalpramudia/DarkX](https://github.com/novalpramudia/DarkX)
+- **Clone:**
+  ```bash
+  git clone https://github.com/novalpramudia/DarkX.git
+  cd DarkX
+  ```
+- **Issues / bug report:** [github.com/novalpramudia/DarkX/issues](https://github.com/novalpramudia/DarkX/issues)
+
+## Contribution
+
+Kontribusi (bug report, contoh `.dx` baru, penambahan operator/statement,
+perbaikan VS Code extension) sangat diterima. Lihat bagian
+[Roadmap / Cara Mengembangkan](#roadmap--cara-mengembangkan) di bawah
+untuk pola menambah fitur baru. Panduan kontribusi lebih lengkap akan
+ditambahkan di `CONTRIBUTING.md`.
+
+## License
+
+DarkX dilisensikan di bawah **[MIT License](LICENSE)** — bebas dipakai,
+dimodifikasi, dan didistribusikan ulang (termasuk untuk proyek
+closed-source), selama notice copyright & lisensi disertakan.
+
+Copyright (c) 2026 Noval Pramudia.
 
 ## Roadmap / Cara Mengembangkan
 

@@ -1,0 +1,42 @@
+name: CI
+
+"on":
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        run: pip install pytest
+
+      - name: Run test suite
+        run: python -m pytest tests/ -v
+
+      - name: Run all .dx examples
+        run: |
+          set -e
+          for f in examples/*.dx; do
+            echo "=== Running $f ==="
+            python -m src.main "$f"
+          done
+
+      - name: Validate VS Code TextMate grammar JSON
+        run: |
+          python -c "import json; json.load(open('editors/vscode-darkx/syntaxes/darkx.tmLanguage.json')); print('darkx.tmLanguage.json OK')"
+          python -c "import json; json.load(open('editors/vscode-darkx/package.json')); print('package.json OK')"
+          python -c "import json; json.load(open('editors/vscode-darkx/language-configuration.json')); print('language-configuration.json OK')"

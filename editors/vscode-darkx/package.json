@@ -3,13 +3,29 @@
   "displayName": "DarkX Language Support",
   "description": "Syntax highlighting untuk bahasa pemrograman simbolik DarkX (.dx)",
   "version": "0.1.0",
-  "publisher": "darkx-lang",
+  "publisher": "REPLACE_WITH_YOUR_VSCODE_PUBLISHER_ID",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
     "Programming Languages"
   ],
+  "keywords": [
+    "darkx",
+    "esoteric-language",
+    "syntax-highlighting",
+    "dx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novalpramudia/DarkX.git",
+    "directory": "editors/vscode-darkx"
+  },
+  "bugs": {
+    "url": "https://github.com/novalpramudia/DarkX/issues"
+  },
+  "homepage": "https://github.com/novalpramudia/DarkX#readme",
   "contributes": {
     "languages": [
       {
